@@ -9,7 +9,7 @@ module DiCluster
     def initialize(options)
       @name = options[:name] || generate_name
       @registry = options[:registry]
-      @address = options[:address] || 'tcp://0.0.0.0:5555'
+      @address = options[:address] || 'tcp://127.0.0.1:5555'
       @supervisor = NodeSupervisor.spawn name: @name, args: [{
         registry: @registry,
         name: @name,

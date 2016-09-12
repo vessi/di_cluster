@@ -1,13 +1,11 @@
 module DiCluster
   class NodeSupervisor < Concurrent::Actor::RestartingContext
-    attr_reader :logger
 
     def initialize(options = {})
       @name = options[:name]
       @registry = options[:registry]
       @address = options[:address]
       @roles_actors = Set.new
-      @logger = options[:logger] || Logger.new(STDOUT)
     end
 
     def on_message(message)

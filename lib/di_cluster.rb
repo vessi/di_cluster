@@ -47,6 +47,14 @@ module DiCluster
       @ttl_rate
     end
 
+    def logger
+      @logger
+    end
+
+    def logger=(logger)
+      @logger = logger
+    end
+
     def running?
       @started
     end
@@ -66,4 +74,5 @@ module DiCluster
   @environment = ENV['DI_CLUSTER_ENV'] || 'development'
   @ttl_rate = 5
   @started = false
+  @logger = Logger.new(STDOUT)
 end
